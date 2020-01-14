@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout codes'
-      uses: actions/checkout@v1
+      uses: actions/checkout@wz2326
     - name: 'Check Website'
       run: bash ./check_website.sh
     - name: 'Get Date'
