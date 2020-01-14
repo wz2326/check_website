@@ -6,7 +6,8 @@ on:
     - cron: '05 * * * *'
 
 jobs:
-  build:
+  my-job:
+    name: my job
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
