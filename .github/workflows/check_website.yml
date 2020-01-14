@@ -9,21 +9,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout codes'
-      uses: actions/checkout@wz2326
-    - name: 'Check Website'
-      run: bash ./check_website.sh
-    - name: 'Get Date'
-      run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
-    - name: 'Send Mail'
-      uses: wz2326/action-send-mail@wz2326
-      with:
-        server_address: smtp.163.com
-        server_port: 465
-        username: ${{ secrets.MAIL_USERNAME }}
-        password: ${{ secrets.MAIL_PASSWORD }}
-        subject: MangoCool Website is Not Working (${{env.REPORT_DATE}})
-        body: my mangocool website is not working
-        to: 58742094@qq.com
-        from: GitHub Actions
-        content_type: text/html
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Check Website'
+        run: bash ./check_website.sh
+      - name: 'Get Date'
+        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
+      - name: 'Send Mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: MangoCool Website is Not Working (${{env.REPORT_DATE}})
+          body: my mangocool website is not working
+          to: 58742094@qq.com
+          from: GitHub Actions
+          content_type: text/html
