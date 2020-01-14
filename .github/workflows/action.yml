@@ -10,12 +10,6 @@ jobs:
     name: my job
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout codes'
-        uses: actions/checkout@v1
-      - name: 'Check Website'
-        run: bash ./check_website.sh
-      - name: 'Get Date'
-        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
         uses: dawidd6/action-send-mail@master
         with:
@@ -23,7 +17,7 @@ jobs:
           server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
-          subject: MangoCool Website is Not Working (${{env.REPORT_DATE}})
+          subject: MangoCool Website is Not Working
           body: my mangocool website is not working
           to: 58742094@qq.com
           from: GitHub Actions
