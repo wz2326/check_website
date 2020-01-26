@@ -17,7 +17,7 @@ jobs:
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
-        if: ${{env.WEBSITE_WORKING == '200'}}
+        if: (${{env.WEBSITE_WORKING == '200'}})
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.163.com
@@ -25,7 +25,7 @@ jobs:
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: MangoCool Website is Not Working (${{env.REPORT_DATE}})
-          body: my mangocool website is not working.1
+          body: my mangocool website is not working.
           to: 58742094@qq.com
           from: GitHub Actions
           content_type: text/html
