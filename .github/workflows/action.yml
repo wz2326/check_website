@@ -6,7 +6,7 @@ on:
     - cron: '05 * * * *'
 
 env:
-  my_env_var: ${{ bash ./check_website.sh }}
+  my_env_var: ${{ ./check_website.sh }}
 
 jobs:
   my-job:
