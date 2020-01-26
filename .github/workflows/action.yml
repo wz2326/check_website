@@ -17,7 +17,7 @@ jobs:
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
-        if: (${{env.WEBSITE_WORKING == '200'}})
+        if: ${{env.WEBSITE_WORKING == 200}}
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.163.com
