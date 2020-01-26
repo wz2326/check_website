@@ -24,7 +24,7 @@ jobs:
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: MangoCool Website is Not Working (${{env.REPORT_DATE}})
-          body: my mangocool website is not working
+          body: my mangocool website is not working.
           to: 58742094@qq.com
           from: GitHub Actions
           content_type: text/html
