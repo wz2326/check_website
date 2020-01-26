@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Check Website'
         env:
-          MY_VAR: ${{ bash ./check_website.sh }}
+          MY_VAR: bash ./check_website.sh
         run: echo "::set-env name=WEBSITE_WORKING::$(bash ./check_website.sh)"
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
