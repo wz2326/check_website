@@ -21,7 +21,7 @@ jobs:
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
         uses: dawidd6/action-send-mail@master
-        if: $MY_VAR == 200
+        if: 200 == 200
         with:
           server_address: smtp.163.com
           server_port: 465
