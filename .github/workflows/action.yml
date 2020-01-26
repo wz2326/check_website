@@ -5,8 +5,6 @@ on:
   schedule:
     - cron: '05 * * * *'
 
-env:
-  my_env_var: ${{ ./check_website.sh }}
 
 jobs:
   my-job:
@@ -16,12 +14,14 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Check Website'
+        env:
+          MY_VAR: ${{ bash ./check_website.sh }}
         run: echo "::set-env name=WEBSITE_WORKING::$(bash ./check_website.sh)"
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
         uses: dawidd6/action-send-mail@master
-        if: 200 == 200
+        if: $MY_VAR == 200
         with:
           server_address: smtp.163.com
           server_port: 465
