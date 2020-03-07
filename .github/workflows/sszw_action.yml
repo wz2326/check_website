@@ -25,8 +25,8 @@ jobs:
           server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
-          subject: MangoCool Website is Not Working (${{env.WEBSITE_WORKING}}) (${{env.REPORT_DATE}})
-          body: my mangocool website is not working.
+          subject: SSZW Website is Not Working (${{env.WEBSITE_WORKING}}) (${{env.REPORT_DATE}})
+          body: my sszw website is not working.
           to: 58742094@qq.com
           from: GitHub Actions
           content_type: text/html
