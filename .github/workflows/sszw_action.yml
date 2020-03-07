@@ -1,4 +1,4 @@
-name: "check my website is working"
+name: "check sszw website is working"
 
 on: 
   push:
