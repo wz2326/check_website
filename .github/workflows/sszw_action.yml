@@ -16,7 +16,7 @@ jobs:
       - name: 'Check Website'
         run: echo "::set-env name=WEBSITE_WORKING::$(bash ./sszw_check_website.sh)"
       - name: 'Get Date'
-        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Changsha' date '+%Y-%m-%d %T')"
+        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
       - name: 'Send Mail'
         if: env.WEBSITE_WORKING == 503
         uses: dawidd6/action-send-mail@master
