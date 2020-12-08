@@ -14,9 +14,9 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Check Website'
-        run: echo "::set-env name=WEBSITE_WORKING::$(bash ./check_website.sh)"
+        run: echo "WEBSITE_WORKING=$(bash ./check_website.sh)" >> $GITHUB_ENV
       - name: 'Get Date'
-        run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send Mail'
         if: env.WEBSITE_WORKING != 200
         uses: dawidd6/action-send-mail@master
