@@ -18,7 +18,7 @@ jobs:
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send Mail'
-        if: env.WEBSITE_WORKING != 200
+        if: env.WEBSITE_WORKING != 200 && env.WEBSITE_WORKING != 000
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.163.com
