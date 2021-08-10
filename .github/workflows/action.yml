@@ -1,4 +1,4 @@
-name: "check my website is working"
+name: "check mangocool website is working"
 
 on: 
   push:
